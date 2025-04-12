@@ -17,5 +17,3 @@ jobs:
       
       - name: shfmt
         uses: mfinelli/setup-shfmt@v3
-        with:
-          args: "-i 2 -ci -sr"
