@@ -1,5 +1,5 @@
-# itmo-golang-course
+# course_go_2025
 
-### Labs
+### Tasks
 #### Bash
-- [Bash simple quiz game](./task_1/README.md)
+- [Bash simple quiz game](./task_2/README.md)
