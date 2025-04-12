@@ -11,9 +11,14 @@ NC='\033[0m' # No Color
 output_dir="./out"
 questions_file="$1"
 
+# Check output folder and create it if not exists
+if [ ! -d "$output_dir" ]; then
+    mkdir "$output_dir"
+fi
+
 # Check that required argument is passed
 if [ -z "$questions_file" ]; then
-    echo -e "${RED}Error: you do not pass file with questsions"
+    echo -e "${RED}Error: you do not pass file with questions${NC}"
     echo -e "Usage: $0 <questions_file>${NC}"
     exit 1
 fi
@@ -59,7 +64,7 @@ do
         # Asking a question
         echo -e "${YELLOW}$line_number question: $question${NC}"
         echo -en "${CYAN}Enter your answer: ${NC}"
-        read user_answer
+        read user_answer < /dev/tty
         echo $user_answer
 
         # Write result to the results file
