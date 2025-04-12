@@ -7,13 +7,20 @@ on:
     branches: [ "main" ]
 
 jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
       - name: ShellCheck
-        uses: ludeeus/action-shellcheck@v2
+        uses: ludeeus/action-shellcheck@master
       
       - name: shfmt
         uses: ludeeus/action-shfmt@v2
