@@ -8,16 +8,14 @@ on:
 
 jobs:
   lint:
-    name: Lint Shell Scripts
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install ShellCheck
-        run: sudo apt-get install -y shellcheck
-
-      - name: Run ShellCheck
-        run: |
-          find . -name "*.sh" -print0 | xargs -0 shellcheck
+      - uses: actions/checkout@v4
+      
+      - name: ShellCheck
+        uses: ludeeus/action-shellcheck@v2
+      
+      - name: shfmt
+        uses: ludeeus/action-shfmt@v2
+        with:
+          args: "-i 2 -ci -sr"
