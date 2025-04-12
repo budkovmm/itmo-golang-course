@@ -31,7 +31,7 @@ fi
 
 # Read username
 echo -en "${CYAN}Enter your name: ${NC}"
-read username
+read -r username
 clear
 
 # Create results file
@@ -41,7 +41,7 @@ results_file="$output_dir/results_${username}_$(date +"%Y%m%d%H%M").csv"
 line_number=0
 
 # Reading questions file line by line, checking that questions and correct answers are not empty and writing result to the file
-while IFS="\n" read -r line
+while IFS=$'\n' read -r line
 do  
     if [ $line_number -eq 0 ]; then
         # Write title to the file
