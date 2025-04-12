@@ -2,4 +2,4 @@
 
 ### Labs
 #### Bash
-- [Bash simple quiz game](./labs/bash/game/README.md)
+- [Bash simple quiz game](./task_1/README.md)
