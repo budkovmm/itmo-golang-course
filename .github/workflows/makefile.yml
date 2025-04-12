@@ -7,13 +7,15 @@ on:
     branches: [ "main" ]
 
 jobs:
-  lint-shell:
-    runs-on: ubuntu-latest
+  ShellCheck:
+    runs-on: ubuntu-latest@22.04
     steps:
       - uses: actions/checkout@v4
-      
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
-      
+
+  shfmt:
+    runs-on: ubuntu-latest@22.04
+    steps:
       - name: shfmt
         uses: mfinelli/setup-shfmt@v3
