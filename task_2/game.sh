@@ -41,7 +41,7 @@ results_file="$output_dir/results_${username}_$(date +"%Y%m%d%H%M").csv"
 line_number=0
 
 # Reading questions file line by line, checking that questions and correct answers are not empty and writing result to the file
-while IFS="/n" read -r line
+while IFS="\n" read -r line
 do  
     if [ $line_number -eq 0 ]; then
         # Write title to the file
@@ -64,8 +64,8 @@ do
         # Asking a question
         echo -e "${YELLOW}$line_number question: $question${NC}"
         echo -en "${CYAN}Enter your answer: ${NC}"
-        read user_answer < /dev/tty
-        echo $user_answer
+        read -r user_answer < /dev/tty
+        echo "$user_answer"
 
         # Write result to the results file
         echo "\"$question\",\"$user_answer\",\"$answer\"" >> "$results_file"
